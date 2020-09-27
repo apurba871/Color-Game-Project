@@ -1,9 +1,9 @@
 var colors = generateRandomColors(6);
-
 var squares = document.querySelectorAll(".square");
 var pickedColor = pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.querySelector("#message");
+var h1 = document.querySelector("h1");
 
 colorDisplay.textContent = pickedColor;
 
@@ -20,6 +20,7 @@ for (var i = 0; i < squares.length; ++i) {
         if (clickedColor === pickedColor) {
             changeColors(clickedColor);
             messageDisplay.textContent = "Correct!";
+            h1.style.backgroundColor = clickedColor;
         } else {
             this.style.backgroundColor = "#232323";
             messageDisplay.textContent = "Try Again!";
