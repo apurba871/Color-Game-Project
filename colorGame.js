@@ -22,15 +22,22 @@ for (var i = 0; i < squares.length; ++i) {
     squares[i].addEventListener("click", function() {
         //grab color of clicked square
         var clickedColor = this.style.backgroundColor;
+        console.log(clickedColor);
         //compare color to pickedColor
         if (clickedColor === pickedColor) {
-            for (var j = 0; j < squares.length; ++j) {
-                squares[j].style.backgroundColor = clickedColor; 
-            }
+            changeColors(clickedColor);
             messageDisplay.textContent = "Correct!";
         } else {
             this.style.backgroundColor = "#232323";
             messageDisplay.textContent = "Try Again!";
         }
     });
+}
+
+function changeColors(color) {
+    //loop through all squares
+    for (var i = 0; i < squares.length; ++i) {
+        //change each color to match given color
+        squares[i].style.backgroundColor = color;
+    }
 }
