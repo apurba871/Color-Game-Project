@@ -7,7 +7,21 @@ var h1 = document.querySelector("h1");
 var resetButton = document.querySelector("#reset");
 
 resetButton.addEventListener("click", function() {
-    alert("Good to go!");
+    //Change text to 'New Colors'
+    resetButton.textContent = "New Colors";
+    //generate all new colors
+    colors = generateRandomColors(6);
+    //pick a new random color from array
+    pickedColor = pickColor();
+    //change colorDisplay to match picked color
+    colorDisplay.textContent = pickedColor;
+    //change colors of squares
+    for (var i = 0; i < squares.length; ++i) {
+        squares[i].style.background = colors[i];
+    }
+    h1.style.backgroundColor = "#232323";
+    //change message to nothing
+    messageDisplay.textContent = "";
 });
 
 colorDisplay.textContent = pickedColor;
@@ -25,6 +39,7 @@ for (var i = 0; i < squares.length; ++i) {
         if (clickedColor === pickedColor) {
             changeColors(clickedColor);
             messageDisplay.textContent = "Correct!";
+            resetButton.textContent = "Play Again?";
             h1.style.backgroundColor = clickedColor;
         } else {
             this.style.backgroundColor = "#232323";
