@@ -5,6 +5,22 @@ var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.querySelector("#message");
 var h1 = document.querySelector("h1");
 var resetButton = document.querySelector("#reset");
+var easybtn = document.querySelector("#easy");
+var hardbtn = document.querySelector("#hard");
+
+easybtn.addEventListener("click", function() {
+    easybtn.classList.add("difficulty");
+    hardbtn.classList.remove("difficulty");
+    colors = generateRandomColors(3);
+    
+});
+
+hardbtn.addEventListener("click", function() {
+    hardbtn.classList.add("difficulty");
+    easybtn.classList.remove("difficulty");
+    colors = generateRandomColors(6);
+    
+});
 
 resetButton.addEventListener("click", function() {
     //Change text to 'New Colors'
