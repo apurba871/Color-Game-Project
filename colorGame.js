@@ -19,6 +19,7 @@ resetButton.addEventListener("click", function() {
     for (var i = 0; i < squares.length; ++i) {
         squares[i].style.background = colors[i];
     }
+    //reset heading color to default
     h1.style.backgroundColor = "#232323";
     //change message to nothing
     messageDisplay.textContent = "";
