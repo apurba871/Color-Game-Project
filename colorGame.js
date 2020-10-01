@@ -8,42 +8,40 @@ var resetButton = document.querySelector("#reset");
 var easybtn = document.querySelector("#easy");
 var hardbtn = document.querySelector("#hard");
 var btmSquares = document.querySelector("#bottom-squares");
+var flag = false;
 
 hardbtn.classList.add("difficulty");
 hardbtn.disabled = true;
 
 easybtn.addEventListener("click", function() {
-    easybtn.classList.toggle("difficulty");
+    easybtn.classList.add("difficulty");
     hardbtn.classList.remove("difficulty");
+    btmSquares.classList.add("hide");
+    flag = true;
     resetButton.click();
-    colors = generateRandomColors(3);
-    btmSquares.classList.toggle("hide");
     pickedColor = pickColor();
-    hardbtn.disabled = false;
-    colorDisplay.textContent = pickedColor;
     easybtn.disabled = true;
-    paintSquares();
+    hardbtn.disabled = false;
 });
 
 hardbtn.addEventListener("click", function() {
-    //hardbtn.classList.toggle("difficulty");
     easybtn.classList.remove("difficulty");
-    resetButton.click();
-    colors = generateRandomColors(6);
-    btmSquares.classList.toggle("hide");
-    pickedColor = pickColor();
-    colorDisplay.textContent = pickedColor;
-    easybtn.disabled = false;
     hardbtn.classList.add("difficulty");
+    btmSquares.classList.remove("hide");
+    flag = false;
+    resetButton.click();
+    easybtn.disabled = false;
     hardbtn.disabled = true;
-    paintSquares();
 });
 
 resetButton.addEventListener("click", function() {
     //Change text to 'New Colors'
     resetButton.textContent = "New Colors";
-    //generate all new colors
-    colors = generateRandomColors(6);
+    //generate all new colors of selected difficulty
+    if (!flag)
+        colors = generateRandomColors(6);
+    else
+        colors = generateRandomColors(3);
     //pick a new random color from array
     pickedColor = pickColor();
     //change colorDisplay to match picked color
@@ -56,6 +54,8 @@ resetButton.addEventListener("click", function() {
     h1.style.backgroundColor = "#232323";
     //change message to nothing
     messageDisplay.textContent = "";
+    //paint squares
+    paintSquares();
 });
 
 colorDisplay.textContent = pickedColor;
@@ -65,7 +65,6 @@ function paintSquares() {
     for (var i = 0; i < squares.length; ++i) {
         //add initial colors to squares
         squares[i].style.backgroundColor = colors[i];
-    
         //add click listeners to squares
         squares[i].addEventListener("click", function() {
             //grab color of clicked square
@@ -120,6 +119,6 @@ function getRandomColor() {
     var blue = Math.floor(Math.random() * 256);
     //make rgb string
     var rgb = "rgb(" + red + ", " + green + ", " + blue + ")";
-
+    //return rgb string
     return rgb;
 }
