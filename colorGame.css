@@ -29,3 +29,7 @@ h1 {
 .difficulty {
     background-color: skyblue;
 }
+
+.hide {
+    visibility: hidden;
+}
