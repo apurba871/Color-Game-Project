@@ -1,4 +1,4 @@
-var colors = generateRandomColors(9); //hard by default
+var colors = generateRandomColors(3); //easy by default
 var squares = document.querySelectorAll(".square");
 var pickedColor = pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
@@ -12,8 +12,14 @@ var midSquares = document.querySelector("#middle-squares");
 var btmSquares = document.querySelector("#bottom-squares");
 var flag = 0; //easy
 
-hardbtn.classList.add("difficulty");
-hardbtn.disabled = true;
+easybtn.classList.add("difficulty");
+mediumbtn.classList.remove("difficulty");
+hardbtn.classList.remove("difficulty");
+midSquares.classList.add("hide");
+btmSquares.classList.add("hide");
+easybtn.disabled = true;
+mediumbtn.disabled = false;
+hardbtn.disabled = false;
 
 easybtn.addEventListener("click", function () {
   easybtn.classList.add("difficulty");
