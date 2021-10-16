@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Color Game</title>
-        <link rel="stylesheet" href="colorGame.css">
-    </head>
-    <body>
-        <h1>The Great <br><span id="colorDisplay">RGB</span><br> Color Game</h1>
-        <div id="stripe">
-            <button id="reset">New Colors</button>
-            <span id="message"></span>
-            <button id="easy">Easy</button>
-            <button id="hard">Hard</button>
-        </div>
-        <div id="container">
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <span id="bottom-squares">
-                <div class="square"></div>
-                <div class="square"></div>
-                <div class="square"></div>
-            </span>
-        </div>
-        <script src="colorGame.js"></script>
-    </body>
+  <head>
+    <title>Color Game</title>
+    <link rel="stylesheet" href="colorGame.css" />
+  </head>
+  <body>
+    <h1>
+      The Great <br /><span id="colorDisplay">RGB</span><br />
+      Color Game
+    </h1>
+    <div id="stripe">
+      <button id="reset">New Colors</button>
+      <span id="message"></span>
+      <button id="easy">Easy</button>
+      <button id="medium">Medium</button>
+      <button id="hard">Hard</button>
+    </div>
+    <div id="container">
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <span id="middle-squares">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+      </span>
+      <span id="bottom-squares">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+      </span>
+    </div>
+    <script src="colorGame.js"></script>
+  </body>
 </html>
